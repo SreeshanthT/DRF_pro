@@ -6,6 +6,8 @@ from django.contrib.auth.models import User, Group
 from rest_framework import viewsets
 from rest_framework import permissions
 from drf_api.serializers import UserSerializer, GroupSerializer
+from drf_user.models import Snippet
+from drf_user.serializers import SnippetSerializer
 
 
 class UserViewSet(viewsets.ModelViewSet):
@@ -24,3 +26,8 @@ class GroupViewSet(viewsets.ModelViewSet):
     queryset = Group.objects.all()
     serializer_class = GroupSerializer
     permission_classes = [permissions.IsAuthenticated]
+    
+    
+class SnippetViewSet(viewsets.ModelViewSet):
+    queryset = Snippet.objects.all()
+    serializer_class = SnippetSerializer
